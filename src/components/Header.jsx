@@ -1,61 +1,56 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Container from './Container';
-import orebi from "../assets/logo.png";
-import { HiOutlineBars3BottomLeft } from "react-icons/hi2";
-import { RxCross2 } from "react-icons/rx";
+import logo from '../assets/logo.png';
 
 const Header = () => {
-  let [show, setShow] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  // Handle adding/removing overflow-hidden class to body
-  useEffect(() => {
-    if (show) {
-      document.body.classList.add('overflow-hidden'); // Disable scrolling
-    } else {
-      document.body.classList.remove('overflow-hidden'); // Enable scrolling
-    }
-
-    // Cleanup function to ensure scrolling is enabled when the component unmounts
-    return () => {
-      document.body.classList.remove('overflow-hidden');
-    };
-  }, [show]);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <Container className="relative flex flex-col lg:flex-row py-5">
-      {/* Logo */}
-      <div className='w-2/4'>
-        <img src={orebi} alt="Logo" />
+    <Container className="p-5 flex items-center justify-between max-w-screen-xl mx-auto">
+    
+      <div className="w-1/3 md:w-1/5">
+        <img src={logo} alt="Logo" className="h-auto max-w-full" />
       </div>
 
-      {/* Navigation for larger screens */}
-      <div className='hidden lg:block w-3/4'>
-        <ul className='flex font-semibold items-center text-[#979797] gap-6'>
-          <li className='hover:text-black hover:font-semibold'>Home</li>
-          <li className='hover:text-black hover:font-semibold'>Shop</li>
-          <li className='hover:text-black hover:font-semibold'>About</li>
-          <li className='hover:text-black hover:font-semibold'>Contact</li>
-          <li className='hover:text-black hover:font-semibold'>Journal</li>
+      
+      <div className="hidden md:block w-2/3">
+        <ul className="flex gap-6 justify-center font-DMs text-[16px] font-semibold text-[#767676]">
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold">Home</li>
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold">Shop</li>
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold">About</li>
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold">Contacts</li>
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold">Journal</li>
         </ul>
       </div>
 
-      {/* Toggle Button for small screens */}
-      <div className="lg:hidden flex justify-between items-center w-full">
-        <div className="ml-auto" onClick={() => setShow(!show)}>
-          {show ? <RxCross2 /> : <HiOutlineBars3BottomLeft />}
+      {/* Mobile Menu Toggle Button */}
+      <button className="md:hidden p-2" onClick={toggleMenu}>
+        <svg
+          className="w-6 h-6 text-[#767676]"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="absolute top-16 left-0 right-0 bg-gray-500 opacity-85 shadow-lg md:hidden  z-10">
+          <ul className="flex flex-col items-center p-6 space-y-4">
+            <li className="text-[16px] font-bold text-[#F3F8FF] hover:text-black duration-300 ease-in-out">Home</li>
+            <li className="text-[16px] font-bold text-[#F3F8FF] hover:text-black duration-300 ease-in-out">Shop</li>
+            <li className="text-[16px] font-bold text-[#F3F8FF] hover:text-black duration-300 ease-in-out">About</li>
+            <li className="text-[16px] font-bold text-[#F3F8FF] hover:text-black duration-300 ease-in-out">Contacts</li>
+            <li className="text-[16px] font-bold text-[#F3F8FF] hover:text-black duration-300 ease-in-out">Journal</li>
+          </ul>
         </div>
-      </div>
-
-      {/* Toggle Navigation for small screens */}
-      <div className={`lg:hidden absolute top-full left-0 w-full bg-[#979797] transition-all duration-500 ease-in-out ${show ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-        <ul className='flex flex-col font-semibold items-center gap-6 py-4'>
-          <li className='hover:text-white duration-500 ease-in-out hover:font-semibold'>Home</li>
-          <li className='hover:text-white duration-500 ease-in-out hover:font-semibold'>Shop</li>
-          <li className='hover:text-white duration-500 ease-in-out hover:font-semibold'>About</li>
-          <li className='hover:text-white duration-500 ease-in-out hover:font-semibold'>Contact</li>
-          <li className='hover:text-white duration-500 ease-in-out hover:font-semibold'>Journal</li>
-        </ul>
-      </div>
+      )}
     </Container>
   );
 };
