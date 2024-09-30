@@ -18,7 +18,8 @@ export default {
         'ghori':"url('assets/ghori.jpg')",
         'bilai':"url('assets/bilai.jpg)",
         'jhuri':"url('assets/jhuri.jpg')",
-        'ghor':"url('assets/uju.jpg')"
+        'ghor':"url('assets/uju.jpg')",
+        'phone':"url('assets/phone.jpg')"
 
       },
       fontFamily:{

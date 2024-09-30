@@ -26,8 +26,8 @@ const Seller = () => {
 
       <Slider {...settings}>
         {[ket, bag, bag2, sunglass].map((image, index) => (
-          <div key={index} className='p-2 relative outline-none'> {/* Added outline-none to remove border on focus */}
-            <img src={image} alt="" className="outline-none" />  {/* Added outline-none to the image */}
+          <div key={index} className='p-2 relative outline-none'>
+            <img src={image} alt="" className="outline-none" />  
             <div className='absolute top-2 left-3 pt-3'>
             <h5 className='text-[10px] hover:bg-purple-700 hover:text-white px-2 py-1 lg:text-[18px] lg:px-6 lg:py-1 bg-black text-white'>New</h5>
 
@@ -37,9 +37,7 @@ const Seller = () => {
     <h2 className='text-[14px] sm:text-[16px] font-bold'>Basic crew neck tee</h2>
     <p className='text-gray-400 text-[12px] sm:text-[14px]'>$44.00</p>
   </div>
-  <div className='flex-1 mb-1 sm:text-right'>
-    <h5 className='text-[12px] sm:text-[14px]'>Black</h5>
-  </div>
+
 </div>
 
           </div>

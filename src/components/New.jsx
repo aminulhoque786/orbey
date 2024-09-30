@@ -7,7 +7,7 @@ import bag from "../assets/bilai.jpg";
 import sunglass from "../assets/bag.png";
 
 const New = () => {
-  const sliderRef = useRef(null); 
+  const sliderRef = useRef(null);
 
   const settings = {
     dots: true,
@@ -15,68 +15,87 @@ const New = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
   };
 
   const handleNext = () => {
-    sliderRef.current.slickNext(); 
+    sliderRef.current.slickNext();
   };
 
   const handlePrev = () => {
-    sliderRef.current.slickPrev(); 
+    sliderRef.current.slickPrev();
   };
 
   return (
-    <Container className="pt-10">
-      <div>
-        <h2 className='font-dm text-[30px] font-bold'>New Arrivals</h2>
+    <Container className="pt-8 px-4 md:px-8 lg:px-12">
+      {/* Title Section */}
+      <div className="mb-6 ">
+        <h2 className='font-dm text-[24px] sm:text-[30px] font-bold'>New Arrivals</h2>
       </div>
 
-      <div className="relative">
+      {/* Slider Section */}
+      <div className="relative mx-auto max-w-[1400px]">
+        {/* Previous Button */}
         <button
           onClick={handlePrev}
-          className="absolute left-0 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-200"
-          style={{ top: '50%', transform: 'translateY(-50%)' }} 
+          className="absolute left-0 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-200 transition ease-in-out"
+          style={{ top: '50%', transform: 'translateY(-50%)' }}
         >
-          &#10094; 
+          &#10094;
         </button>
 
+        {/* Slick Slider Component */}
         <Slider ref={sliderRef} {...settings}>
           {[ket, bag, bag2, sunglass].map((image, index) => (
-            <div key={index} className='p-2 relative group outline-none'>
-              <img src={image} alt="" className="outline-none" />
-              
+            <div key={index} className='p-4 relative group outline-none'>
+              <img src={image} alt="" className="rounded-lg outline-none w-full h-[300px] object-cover sm:h-[350px] lg:h-[400px] transition-all duration-300 transform group-hover:scale-105" />
+
               {/* "New" label */}
-              <div className='absolute top-2 left-3 pt-3'>
-                <h5 className='text-[10px] hover:bg-purple-700 hover:text-white px-2 py-1 lg:text-[18px] lg:px-6 lg:py-1 bg-black text-white'>New</h5>
+              <div className='absolute top-3 left-3'>
+                <span className='text-xs sm:text-sm lg:text-base bg-black text-white px-2 py-1 rounded hover:bg-purple-700 transition ease-in-out'>New</span>
               </div>
 
-              {/* Add to Cart and Add to Favourite */}
-              <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-0 group-hover:bg-opacity-80 transition duration-300 ease-in-out">
+              {/* Add to Cart and Favourite Overlay */}
+              <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-0 group-hover:bg-opacity-80 transition duration-300 ease-in-out rounded-b-lg">
                 <div className="flex flex-col items-start space-y-2 p-4 transform translate-y-[100%] group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
-                  <h5 className="text-white text-sm sm:text-base">Add to Cart</h5>
-                  <h5 className="text-white text-sm sm:text-base">Add to Favourite</h5>
+                  <button className="text-white text-sm sm:text-base hover:text-purple-500">Add to Cart</button>
+                  <button className="text-white text-sm sm:text-base hover:text-purple-500">Add to Favourite</button>
                 </div>
               </div>
-              <div className='flex flex-col sm:flex-row font-dm items-start justify-between'>
-<div className='flex-1 mb-1'>
-  <h2 className='text-[14px] sm:text-[16px] font-bold'>Basic crew neck tee</h2>
-  <p className='text-gray-400 text-[12px] sm:text-[14px]'>$44.00</p>
-</div>
-<div className='flex-1 mb-1 sm:text-right'>
-  <h5 className='text-[12px] sm:text-[14px]'>Black</h5>
-</div>
-</div>
+
+              {/* Product Details */}
+              <div className='flex flex-col sm:flex-row font-dm items-start justify-between mt-4'>
+                <div className='flex-1'>
+                  <h2 className='text-[14px] sm:text-[16px] font-bold'>Basic crew neck tee</h2>
+                  <p className='text-gray-500 text-[12px] sm:text-[14px]'>$44.00</p>
+                </div>
+              </div>
             </div>
-            
           ))}
         </Slider>
 
+        {/* Next Button */}
         <button
           onClick={handleNext}
-          className="absolute right-0 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-200"
-          style={{ top: '50%', transform: 'translateY(-50%)' }} 
+          className="absolute right-0 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-200 transition ease-in-out"
+          style={{ top: '50%', transform: 'translateY(-50%)' }}
         >
-          &#10095; 
+          &#10095;
         </button>
       </div>
     </Container>

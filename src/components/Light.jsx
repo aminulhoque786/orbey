@@ -19,7 +19,7 @@ const Light = () => {
           data-aos="fade-up"
           data-aos-duration="3000" // Custom duration for this element (3 seconds)
         >
-          <div className="font-dm pt-[140px] gap-4 lg:pt-30 pl-5 translate-y-1/2">
+          <div className="font-dm pt-[160px] gap-4 lg:pt-30 pl-5 translate-y-1/2">
             <h2 className="text-[24px] lg:text-[30px] font-bold text-[#262626]">
               Phone sales
             </h2>
