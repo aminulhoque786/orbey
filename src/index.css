@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+img{
+    vertical-align: center;
+}
+*, ::before, ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: none;
+    border-color: transparent;
+}
+*, ::before, ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: none;
+    border-color: transparent;
+}
+li{
+    list-style: none;
+    border: none;
+}
+ul{
+    list-style: none;
+}
+body {
+    overflow-x: hidden;
+  }
+  
+      
