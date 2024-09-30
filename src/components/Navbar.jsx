@@ -21,9 +21,9 @@ const Navbar = () => {
   return (
     <div className="bg-[#D8D8D8] ">
       <Container className="lg:py-4">
-        <Flex className="flex-col lg:flex-row lg:items-center">
+        <Flex className="flex-col lg:flex-row lg:items-center pr-6">
           
-          <div className="flex items-center  gap-3 w-full lg:w-1/4 mb-4 lg:mb-0 relative">
+          <div className="flex items-center   gap-3 w-full lg:w-1/4 mb-4 lg:mb-0 relative">
             <FaBarsStaggered 
               className="cursor-pointer font-dm" 
               onClick={handleCategoryToggle} 
@@ -69,9 +69,9 @@ const Navbar = () => {
           <IoMdArrowDropdown className="text-[20px]" />
         </div>
         {isOpen && (
-          <ul className="absolute z-10  right-0 mt-2 bg-white shadow-lg p-2 rounded">
-            <li className="px-4 hover:text-white hover:bg-black py-2 cursor-pointer">Account</li>
-            <li className="px-4 hover:text-white  hover:bg-black py-2  cursor-pointer">Log in</li>
+          <ul className="absolute z-10  right-0 mt-2 opacity-80 bg-black shadow-lg p-2 rounded">
+            <li className="px-4 hover:text-purple-700 text-white hover:bg-black py-2 cursor-pointer">Account</li>
+            <li className="px-4 hover:text-purple text-white  hover:bg-black py-2  cursor-pointer">Log in</li>
           </ul>
         )}
       </div>
