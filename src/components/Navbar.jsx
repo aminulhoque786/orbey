@@ -37,7 +37,7 @@ const Navbar = () => {
 
           
             {isCategoryOpen && (
-              <ul className="z-10 bg-black text-[15px] font-semibold text-white absolute top-12 left-0 p-4 rounded shadow-lg w-48">
+              <ul className="z-10 bg-black opacity-60 text-[15px] font-semibold text-white absolute top-12 left-0 p-4 rounded shadow-lg w-48">
                 <li className="hover:text-purple-700 duration-500 ease-in-out py-1">Accessories</li>
                 <li className="hover:text-purple-700 duration-500 ease-in-out py-1">Furniture</li>
                 <li className="hover:text-purple-700 duration-500 ease-in-out py-1">Electronic</li>

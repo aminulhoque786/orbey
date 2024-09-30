@@ -27,7 +27,7 @@ const Banner = () => {
         {bgClasses.map((bgClass, index) => (
           <div
             key={index}
-            className={`${bgClass} bg-cover bg-center h-[650px] sm:h-[400px] md:h-[550px]`}
+            className={`${bgClass} bg-cover bg-center h-[350px] sm:h-[400px] md:h-[550px]`}
           >
             <Container className="pt-20">
               <div className="w-full md:w-1/2 px-4  sm:px-8 md:px-[80px] relative text-left">
@@ -40,7 +40,7 @@ const Banner = () => {
                 {/* Subheading */}
                 <p className="flex items-center text-base sm:text-lg text-[#979797] mt-4">
                   <span className="text-sm sm:text-base">up to</span>
-                  <span className="font-bold text-3xl sm:text-4xl mx-2">
+                  <span className="font-bold text-black text-3xl sm:text-4xl mx-2">
                     50%
                   </span>
                   <span className="text-sm sm:text-base">
