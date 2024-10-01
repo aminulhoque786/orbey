@@ -19,7 +19,7 @@ const Seller = () => {
   };
 
   return (
-    <Container className="pt-10">
+    <Container className="pt-10 overflow-hidden">
       <div className=''>
         <h2 className='font-dm text-[30px] font-bold'>Our Best Sellers</h2>
       </div>

@@ -27,7 +27,7 @@ const Offers = () => {
   };
 
   return (
-    <Container className=" mb-10">
+    <Container className=" mb-10 overflow-hidden">
       <div>
         <h2 className='font-dm text-[30px] font-bold'>Special Ofeers</h2>
       </div>

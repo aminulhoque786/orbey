@@ -42,7 +42,7 @@ const New = () => {
   };
 
   return (
-    <Container className="pt-8 px-4 md:px-8 lg:px-12">
+    <Container className="pt-8 px-4 md:px-8 lg:px-12 overflow-hidden">
       {/* Title Section */}
       <div className="mb-6 ">
         <h2 className='font-dm text-[24px] sm:text-[30px] font-bold'>New Arrivals</h2>

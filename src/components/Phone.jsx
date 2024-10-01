@@ -4,7 +4,7 @@ import Container from './Container'
 const Phone = () => {
   return (
    <section className='py-8'>
-    <Container className="bg-phone bg-cover bg-no-repeat w-full h-[370px] pt-[61px] lg:pl-[581px] md:pl-[400px] sm:pl-[200px] pl-5 flex flex-col items-start">
+    <Container className="bg-phone overflow-hidden bg-cover bg-no-repeat w-full h-[370px] pt-[61px] lg:pl-[581px] md:pl-[400px] sm:pl-[200px] pl-5 flex flex-col items-start">
         <div className=" max-w-full">
             <h2 className='text-[32px] sm:text-[32px] md:text-[36px] lg:text-[39px] text-black font-DMs font-bold'>
               Phone of the year

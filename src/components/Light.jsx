@@ -12,15 +12,15 @@ const Light = () => {
   }, []);
 
   return (
-    <Container className="pt-10">
+    <Container className="pt-10 overflow-hidden">
       <div className="flex flex-col lg:flex-row">
         {/* Main Phone Sales Section */}
         <div
-          className="w-full lg:w-4/5 h-[400px] bg-bg-3 bg-cover bg-center bg-no-repeat m-1"
+          className="w-full lg:w-4/5 h-[520px] bg-bg-3 bg-cover bg-center bg-no-repeat m-1"
           data-aos="fade-up"
           data-aos-duration="3000"
         >
-          <div className="font-dm pt-[120px] gap-4 lg:pt-30 pl-5 translate-y-1/2">
+          <div className="font-dm lg:pt-[150px] pt-[180px] gap-4 lg:pt-30 pl-5 translate-y-1/2">
             <h2 className="text-[20px] lg:text-[30px] font-bold text-[#262626]">
               Phone Sales
             </h2>
