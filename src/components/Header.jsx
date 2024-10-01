@@ -16,7 +16,6 @@ const Header = () => {
         <img src={logo} alt="Logo" className="h-auto max-w-full" />
       </div>
 
-      
       <div className="hidden md:block w-2/3">
         <ul className="flex gap-6 justify-center font-DMs text-[16px] font-semibold text-[#767676]">
           <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold">Home</li>
@@ -29,19 +28,42 @@ const Header = () => {
 
       {/* Mobile Menu Toggle Button */}
       <button className="md:hidden p-2" onClick={toggleMenu}>
-        <svg
-          className="w-6 h-6 text-[#767676]"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-        </svg>
+        {isOpen ? (
+          // Cross (X) Icon
+          <svg
+            className="w-6 h-6 text-[#767676]"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        ) : (
+          // Hamburger Icon
+          <svg
+            className="w-6 h-6 text-[#767676]"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        )}
       </button>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-gray-500 opacity-85 shadow-lg md:hidden  z-10">
+        <div className="absolute top-16 left-0 right-0 bg-gray-500 opacity-85 shadow-lg md:hidden z-10">
           <ul className="flex flex-col items-center p-6 space-y-4">
             <li className="text-[16px] font-bold text-[#F3F8FF] hover:text-black duration-300 ease-in-out">Home</li>
             <li className="text-[16px] font-bold text-[#F3F8FF] hover:text-black duration-300 ease-in-out">Shop</li>
