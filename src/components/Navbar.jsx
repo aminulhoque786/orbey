@@ -45,29 +45,32 @@ const Navbar = () => {
         <Flex className="items-center flex-wrap md:flex-nowrap">
           {/* Shop by Category */}
           <div className="w-full md:w-1/4 relative mb-4 md:mb-0">
-            <div ref={cateRef} className="flex items-center gap-x-2 cursor-pointer">
-              <HiMiniBars2 />
-              <h3 className="text-[14px] sm:text-[16px] md:text-[18px]">Shop by Category</h3>
-            </div>
-            {isCateNav && (
-              <div className="bg-[#262626] w-full md:w-[300px] absolute left-0 top-full mt-2 z-[1]">
-                <ul className="py-3">
-                  {["Accessories", "Furniture", "Electronics", "Clothes", "Bags", "Home appliances"].map(
-                    (item, index) => (
-                      <li
-                        key={index}
-                        className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out"
-                      >
-                        {item}
-                      </li>
-                    )
-                  )}
-                </ul>
-              </div>
-            )}
-          </div>
+  <div ref={cateRef} className="flex items-center gap-x-2 cursor-pointer">
+    <HiMiniBars2 />
+    <h3 className="text-[14px] sm:text-[16px] md:text-[18px]">Shop by Category</h3>
+  </div>
+  {isCateNav && (
+    <div className="bg-[#262626] w-full md:w-[300px] absolute left-0 top-full mt-2 z-[1]">
+      <ul className="py-3">
+        {["Accessories", "Furniture", "Electronics", "Clothes", "Bags", "Home appliances"].map(
+          (item, index) => (
+            <li
+              key={index}
+              className={`font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 ${
+                index !== 5 ? 'border-b-[1px] border-pink-600' : ''
+              } hover:pl-6 duration-300 ease-in-out`}
+            >
+              {item}
+            </li>
+          )
+        )}
+      </ul>
+    </div>
+  )}
+</div>
 
-          {/* Search bar */}
+
+          
           <div className="w-full md:w-1/2 mb-4 md:mb-0">
             <div className="relative">
               <input

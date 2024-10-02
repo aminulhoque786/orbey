@@ -29,7 +29,7 @@ const Banner = () => {
     customPaging: i => (
       <div
         style={{
-          width: "30px",
+          width: "25px",
           color: "blue",
           borderRight: "transparent",
           color:"transparent"
