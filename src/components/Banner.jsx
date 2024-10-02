@@ -43,13 +43,13 @@ const Banner = () => {
     <div>
  <Slider {...settings}>
   <div className=''>
-    <img className='' src={banimg} alt="" />
+    <img className='w-full' src={banimg} alt="" />
   </div>
   <div className=''>
-    <img className='' src={banimg} alt="" />
+    <img className='w-full' src={banimg} alt="" />
   </div>
   <div className=''>
-    <img src={banimg} alt="" />
+    <img className='w-full' src={banimg} alt="" />
   </div>
  </Slider>
     </div>
