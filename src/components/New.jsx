@@ -10,9 +10,10 @@ const New = () => {
   const sliderRef = useRef(null);
 
   const settings = {
-    dots: true,
+    
     infinite: true,
     slidesToShow: 3,
+    arrows:false,
     slidesToScroll: 1,
     autoplay: true,
     responsive: [

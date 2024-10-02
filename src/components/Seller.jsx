@@ -8,7 +8,7 @@ import sunglass from "../assets/sunglass.png";
 
 const Seller = () => {
   const settings = {
-    dots: true,
+    arrows:false,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,

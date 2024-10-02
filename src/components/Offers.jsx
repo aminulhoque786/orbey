@@ -10,7 +10,8 @@ const Offers = () => {
   const sliderRef = useRef(null); 
 
   const settings = {
-    dots: true,
+    
+    arrows:false,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,

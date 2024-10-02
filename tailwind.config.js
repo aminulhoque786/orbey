@@ -8,9 +8,9 @@ export default {
     extend: {
       backgroundImage: {
         'hero': "url('assets/banner.png')",
-        'hero-2': "url('assets/tui.avif')", 
+      
         'hero-3': "url('assets/headphone.jpg')",
-        'bg-1':"url('assets/banner.png')",
+       
         'bg-2': "url('assets/banner2.png')",
         'bg-3':"url('assets/banner3.png')",
         'bg-4':"url('assets/banner4.png')",

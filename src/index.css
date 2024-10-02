@@ -6,21 +6,10 @@
 img{
     vertical-align: center;
 }
-*, ::before, ::after {
-    box-sizing: border-box;
-    border-width: 0;
-    border-style: none;
-    border-color: transparent;
-}
-*, ::before, ::after {
-    box-sizing: border-box;
-    border-width: 0;
-    border-style: none;
-    border-color: transparent;
-}
+
 li{
     list-style: none;
-    border: none;
+
 }
 ul{
     list-style: none;
@@ -28,5 +17,8 @@ ul{
 body {
     overflow-x: hidden;
   }
-
+  .slick-dots .slick-active div {
+    border-right: 3px solid #262626 !important;
+    color: #262626 !important;
+  }
       

@@ -1,85 +1,155 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Container from "./Container";
-import { FaBarsStaggered } from "react-icons/fa6";
 import Flex from "./Flex";
-import { FaSearch } from "react-icons/fa";
+import { HiMiniBars2 } from "react-icons/hi2";
+import { ImSearch } from "react-icons/im";
+import { FaUser } from "react-icons/fa6";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { FcBusinessman } from "react-icons/fc";
-import { FaShoppingCart } from "react-icons/fa";
-
+import { IoCart } from "react-icons/io5";
+import { RxCross2 } from "react-icons/rx";
+import tui from "../assets/uglu.jpeg"
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  let cateRef = useRef();
+  let accRef = useRef();
+  let cartRef = useRef(); // For the cart dropdown
+  let [isCateNav, setisCateNav] = useState(false);
+  let [isAcc, setisAcc] = useState(false);
+  let [isCart, setisCart] = useState(false); // Cart state
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  useEffect(() => {
+    document.addEventListener("click", (e) => {
+      if (cateRef.current && cateRef.current.contains(e.target)) {
+        setisCateNav(!isCateNav);
+      } else {
+        setisCateNav(false);
+      }
 
-  const handleCategoryToggle = () => {
-    setIsCategoryOpen(!isCategoryOpen);
-  };
+      if (accRef.current && accRef.current.contains(e.target)) {
+        setisAcc(!isAcc);
+      } else {
+        setisAcc(false);
+      }
+
+      if (cartRef.current && cartRef.current.contains(e.target)) {
+        setisCart(!isCart);
+      } else {
+        setisCart(false);
+      }
+    });
+  }, [isCateNav, isAcc, isCart]);
+
   return (
-    <div className="bg-[#D8D8D8] ">
-      <Container className="lg:py-4">
-        <Flex className="flex-col lg:flex-row lg:items-center pr-6">
-          
-          <div className="flex items-center   gap-3 w-full lg:w-1/4 mb-4 lg:mb-0 relative">
-            <FaBarsStaggered 
-              className="cursor-pointer font-dm" 
-              onClick={handleCategoryToggle} 
-            />
-            <p 
-              className="cursor-pointer" 
-              onClick={handleCategoryToggle}
-            >
-              Shop By Category
-            </p>
-
-          
-            {isCategoryOpen && (
-              <ul className="z-10 bg-black opacity-60 text-[15px] font-semibold text-white absolute top-12 left-0 p-4 rounded shadow-lg w-48">
-                <li className="hover:text-purple-700 duration-500 ease-in-out py-1">Accessories</li>
-                <li className="hover:text-purple-700 duration-500 ease-in-out py-1">Furniture</li>
-                <li className="hover:text-purple-700 duration-500 ease-in-out py-1">Electronic</li>
-                <li className="hover:text-purple-700 duration-500 ease-in-out py-1">Cloths</li>
-                <li className="hover:text-purple-700 duration-500 ease-in-out py-1">Bags</li>
-                <li className="hover:text-purple-700 duration-500 ease-in-out py-1">Home Appliances</li>
-              </ul>
+    <section className="bg-[#F5F5F3] py-[25px]">
+      <Container>
+        <Flex className="items-center">
+          {/* Shop by Category */}
+          <div className="w-1/4 relative">
+            <div ref={cateRef} className="flex items-center gap-x-2 cursor-pointer">
+              <HiMiniBars2 />
+              <h3>Shop by Category</h3>
+            </div>
+            {isCateNav && (
+              <div className="bg-[#262626] w-[300px] absolute left-0 top-full mt-2 z-[1]">
+                <ul className="py-3">
+                  <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out">
+                    Accessories
+                  </li>
+                  <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out">
+                    Furniture
+                  </li>
+                  <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out">
+                    Electronics
+                  </li>
+                  <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out">
+                    Clothes
+                  </li>
+                  <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out">
+                    Bags
+                  </li>
+                  <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 hover:pl-6 duration-300 ease-in-out">
+                    Home appliances
+                  </li>
+                </ul>
+              </div>
             )}
           </div>
 
-      
-          <div className="flex justify-end lg:w-2/3 relative mb-4 lg:mb-0">
-  <input
-    className="py-2 lg:w-full sm:w-1/4 rounded pl-2 border-none"
-    type="text"
-    placeholder="Search..."
-  />
-  <FaSearch className="absolute top-3 right-3" />
-</div>
+          {/* Search bar */}
+          <div className="w-1/2">
+            <div className="relative">
+              <input
+                type="search"
+                className="py-3 pl-2 w-full rounded-sm outline-none"
+                placeholder="Search.."
+              />
+              <ImSearch className="absolute top-[50%] translate-y-[-50%] right-4" />
+            </div>
+          </div>
 
-        
-<div className="w-full lg:w-1/4 flex justify-end items-center gap-6">
-      <div className="relative">
-        <div
-          className="flex items-center cursor-pointer"
-          onClick={toggleDropdown}
-        >
-          <FcBusinessman className="text-[30px]" />
-          <IoMdArrowDropdown className="text-[20px]" />
-        </div>
-        {isOpen && (
-          <ul className="absolute z-10  right-0 mt-2 opacity-80 bg-black shadow-lg p-2 rounded">
-            <li className="px-4 hover:text-purple-700 text-white hover:bg-black py-2 cursor-pointer">Account</li>
-            <li className="px-4 hover:text-purple text-white  hover:bg-black py-2  cursor-pointer">Log in</li>
-          </ul>
-        )}
-      </div>
-      <FaShoppingCart className="text-[20px]" />
-    </div>
+          {/* Account and Cart */}
+          <div className="w-1/4">
+            <div className="flex justify-end gap-x-6 relative">
+              {/* Account Dropdown */}
+              <div ref={accRef} className="flex items-center cursor-pointer">
+                <FaUser />
+                <IoMdArrowDropdown />
+              </div>
+              {isAcc && (
+                <div className="bg-[#262626] w-[200px] absolute left-[0] top-full mt-2 z-[1]">
+                  <ul className="py-3">
+                    <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out">
+                      Account
+                    </li>
+                    <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 hover:pl-6 duration-300 ease-in-out">
+                      LogOut
+                    </li>
+                  </ul>
+                </div>
+              )}
+
+              {/* Cart Dropdown */}
+              <div ref={cartRef} className="relative cursor-pointer">
+                <IoCart />
+              </div>
+              {isCart && (
+                <div className="absolute right-0 top-full mt-2 w-[360px] bg-[rgba(233,230,230,0.9)] z-[1]">
+                  <div className="flex bg-white py-4 px-5">
+                  <div>
+                        <img className="w-[150px]" src={tui} alt="" />
+                      </div>
+                    <div className="flex-grow">
+                      
+                      <div className="font-DM font-bold text-[14px] ml-3">
+                        <h3>Black Smart Watch</h3>
+                      </div>
+                      <div className="font-DM font-bold text-[14px] ml-3">
+                        <h3>$44.00</h3>
+                      </div>
+                    </div>
+                    <div className="ms-auto text-[20px]">
+                      <RxCross2 />
+                    </div>
+                  </div>
+                  <div className="bg-white py-4 px-5">
+                    <h5 className="text-[rgba(166,162,162,0.9)]">
+                      Subtotal: <span className="text-black font-bold">$44.00</span>
+                    </h5>
+                    <div className="flex my-5">
+                      <button className="px-[40px] py-[16px] text-[12px] font-bold border-2 border-[#000] me-3 hover:bg-black hover:text-white duration-300">
+                        View Cart
+                      </button>
+                      <button className="px-[40px] py-[16px] text-[12px] font-bold border-2 border-[#000] me-3 hover:bg-black hover:text-white duration-300">
+                        Check Out
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </Flex>
       </Container>
-    </div>
+    </section>
   );
 };
 
