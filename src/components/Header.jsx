@@ -10,7 +10,7 @@ const Header = () => {
   };
 
   return (
-    <Container className="p-5 flex items-center justify-between max-w-screen-xl mx-auto">
+    <Container className="p-5 flex items-center text-center justify-between max-w-screen-xl mx-auto">
     
       <div className="w-1/3 md:w-1/5">
         <img src={logo} alt="Logo" className="h-auto max-w-full" />

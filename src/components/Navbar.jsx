@@ -7,14 +7,15 @@ import { FaUser } from "react-icons/fa6";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoCart } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
-import tui from "../assets/uglu.jpeg"
+import tui from "../assets/uglu.jpeg";
+
 const Navbar = () => {
   let cateRef = useRef();
   let accRef = useRef();
-  let cartRef = useRef(); // For the cart dropdown
+  let cartRef = useRef();
   let [isCateNav, setisCateNav] = useState(false);
   let [isAcc, setisAcc] = useState(false);
-  let [isCart, setisCart] = useState(false); // Cart state
+  let [isCart, setisCart] = useState(false);
 
   useEffect(() => {
     document.addEventListener("click", (e) => {
@@ -39,63 +40,55 @@ const Navbar = () => {
   }, [isCateNav, isAcc, isCart]);
 
   return (
-    <section className="bg-[#F5F5F3] py-[25px]">
+    <section className="bg-[#F5F5F3] py-[15px] sm:py-[20px]">
       <Container>
-        <Flex className="items-center">
+        <Flex className="items-center flex-wrap md:flex-nowrap">
           {/* Shop by Category */}
-          <div className="w-1/4 relative">
+          <div className="w-full md:w-1/4 relative mb-4 md:mb-0">
             <div ref={cateRef} className="flex items-center gap-x-2 cursor-pointer">
               <HiMiniBars2 />
-              <h3>Shop by Category</h3>
+              <h3 className="text-[14px] sm:text-[16px] md:text-[18px]">Shop by Category</h3>
             </div>
             {isCateNav && (
-              <div className="bg-[#262626] w-[300px] absolute left-0 top-full mt-2 z-[1]">
+              <div className="bg-[#262626] w-full md:w-[300px] absolute left-0 top-full mt-2 z-[1]">
                 <ul className="py-3">
-                  <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out">
-                    Accessories
-                  </li>
-                  <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out">
-                    Furniture
-                  </li>
-                  <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out">
-                    Electronics
-                  </li>
-                  <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out">
-                    Clothes
-                  </li>
-                  <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out">
-                    Bags
-                  </li>
-                  <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 hover:pl-6 duration-300 ease-in-out">
-                    Home appliances
-                  </li>
+                  {["Accessories", "Furniture", "Electronics", "Clothes", "Bags", "Home appliances"].map(
+                    (item, index) => (
+                      <li
+                        key={index}
+                        className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out"
+                      >
+                        {item}
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
             )}
           </div>
 
           {/* Search bar */}
-          <div className="w-1/2">
+          <div className="w-full md:w-1/2 mb-4 md:mb-0">
             <div className="relative">
               <input
                 type="search"
-                className="py-3 pl-2 w-full rounded-sm outline-none"
-                placeholder="Search.."
+                className="py-3 pl-2 w-full rounded-sm outline-none text-[12px] sm:text-[14px]"
+                placeholder="Search..."
               />
               <ImSearch className="absolute top-[50%] translate-y-[-50%] right-4" />
             </div>
           </div>
 
           {/* Account and Cart */}
-          <div className="w-1/4">
-            <div className="flex justify-end gap-x-6 relative">
+          <div className="w-full md:w-1/4">
+            <div className="flex justify-end gap-x-4 sm:gap-x-6 relative">
               {/* Account Dropdown */}
               <div ref={accRef} className="flex items-center cursor-pointer">
                 <FaUser />
                 <IoMdArrowDropdown />
               </div>
               {isAcc && (
-                <div className="bg-[#262626] w-[200px] absolute left-[0] top-full mt-2 z-[1]">
+                <div className="bg-[#262626] w-[150px] md:w-[200px] absolute left-0 top-full mt-2 z-[1]">
                   <ul className="py-3">
                     <li className="font-sans text-[14px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-pink-600 hover:pl-6 duration-300 ease-in-out">
                       Account
@@ -112,13 +105,12 @@ const Navbar = () => {
                 <IoCart />
               </div>
               {isCart && (
-                <div className="absolute right-0 top-full mt-2 w-[360px] bg-[rgba(233,230,230,0.9)] z-[1]">
+                <div className="absolute right-0 top-full mt-2 w-full md:w-[360px] bg-[rgba(233,230,230,0.9)] z-[1]">
                   <div className="flex bg-white py-4 px-5">
-                  <div>
-                        <img className="w-[150px]" src={tui} alt="" />
-                      </div>
+                    <div>
+                      <img className="w-[80px] md:w-[150px]" src={tui} alt="Cart item" />
+                    </div>
                     <div className="flex-grow">
-                      
                       <div className="font-DM font-bold text-[14px] ml-3">
                         <h3>Black Smart Watch</h3>
                       </div>
@@ -134,11 +126,11 @@ const Navbar = () => {
                     <h5 className="text-[rgba(166,162,162,0.9)]">
                       Subtotal: <span className="text-black font-bold">$44.00</span>
                     </h5>
-                    <div className="flex my-5">
-                      <button className="px-[40px] py-[16px] text-[12px] font-bold border-2 border-[#000] me-3 hover:bg-black hover:text-white duration-300">
+                    <div className="flex flex-wrap md:flex-nowrap my-5">
+                      <button className="px-[20px] md:px-[40px] py-[12px] md:py-[16px] text-[10px] md:text-[12px] font-bold border-2 border-[#000] me-3 hover:bg-black hover:text-white duration-300">
                         View Cart
                       </button>
-                      <button className="px-[40px] py-[16px] text-[12px] font-bold border-2 border-[#000] me-3 hover:bg-black hover:text-white duration-300">
+                      <button className="px-[20px] md:px-[40px] py-[12px] md:py-[16px] text-[10px] md:text-[12px] font-bold border-2 border-[#000] me-3 hover:bg-black hover:text-white duration-300">
                         Check Out
                       </button>
                     </div>
