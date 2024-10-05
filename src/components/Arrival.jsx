@@ -34,7 +34,7 @@ const Arrival = () => {
         autoplay: true,
         speed: 1000,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll: 3,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
     };
