@@ -2,11 +2,13 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Banner from '../components/Banner'
 import Light from '../components/Light'
-import New from '../components/New'
+// import New from '../components/New'
 import Seller from '../components/Seller'
 import Phone from '../components/Phone'
 import Offers from '../components/Offers'
 import Footer from '../components/Footer'
+import Arrival from '../components/Arrival'
+
 
 const Home = () => {
   return (
@@ -14,7 +16,8 @@ const Home = () => {
  <Navbar/>
  <Banner/>
  <Light/>
- <New/>
+ <Arrival/>
+ {/* <New/> */}
  <Seller/>
  <Phone/>
  <Offers/>
