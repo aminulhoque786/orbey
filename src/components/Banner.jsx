@@ -12,23 +12,24 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     appendDots: dots => (
-      <div
+      <div 
         style={{
           
           borderRadius: "10px",
           position:"absolute",
-          top:"30%",
+          top:"50%",
           left:"100px",
           padding: "10px 0",
-          transform: "translateY-(50%)",
+          transform: "translateY(-50%)",
         }}
       >
-        <ul style={{ margin: "0px" }}> {dots} </ul>
+        <ul className='one'   style={{ margin: "0px" }}> {dots} </ul>
       </div>
     ),
     customPaging: i => (
       <div
         style={{
+          
           width: "25px",
           color: "blue",
           borderRight: "transparent",
