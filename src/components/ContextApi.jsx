@@ -3,7 +3,7 @@ import axios from 'axios';
 import { createContext } from 'react';
 const ApiData = createContext()
 
-const ContextApi = ({children}) => {
+const Contextapi = ({children}) => {
     let [info, setInfo] = useState([])
 
     let getData = ()=>{
@@ -23,4 +23,4 @@ console.log(info);
   )
 }
 
-export {ContextApi,ApiData}
+export {Contextapi,ApiData}

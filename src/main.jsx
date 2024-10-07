@@ -8,11 +8,12 @@ import { ContextApi } from './components/Contextapi.jsx'
 
 
 
+
+
 createRoot(document.getElementById('root')).render(
 
 <ContextApi>
-
-  <App />
+<App/>
 </ContextApi>
 
 
